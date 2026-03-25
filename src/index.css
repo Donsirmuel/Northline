@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 45 33% 98%;
+    --foreground: 221 36% 16%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 221 36% 16%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 221 36% 16%;
+
+    --primary: 221 48% 20%;
+    --primary-foreground: 0 0% 99%;
+
+    --secondary: 42 40% 94%;
+    --secondary-foreground: 220 35% 24%;
+
+    --muted: 42 28% 91%;
+    --muted-foreground: 220 15% 40%;
+
+    --accent: 18 88% 56%;
+    --accent-foreground: 0 0% 99%;
+    --accent-hover: 18 88% 52%;
+
+    --destructive: 359 75% 56%;
+    --destructive-foreground: 0 0% 99%;
+
+    --border: 36 26% 84%;
+    --input: 36 26% 84%;
+    --ring: 18 88% 56%;
+
+    --radius: 0.9rem;
+
+    --font-heading: "Syne", "Avenir Next", "Segoe UI", sans-serif;
+    --font-body: "DM Sans", "Segoe UI", sans-serif;
+
+    --shadow-sm: 0 1px 2px 0 rgb(20 26 45 / 0.06);
+    --shadow-md: 0 10px 20px -8px rgb(20 26 45 / 0.14);
+    --shadow-lg: 0 28px 50px -20px rgb(20 26 45 / 0.2);
+    --shadow-xl: 0 40px 70px -35px rgb(20 26 45 / 0.28);
+
+    --transition-fast: 160ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    --transition-base: 260ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    --transition-slow: 420ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .dark {
+    --background: 220 30% 8%;
+    --foreground: 40 33% 96%;
+
+    --card: 220 25% 11%;
+    --card-foreground: 40 33% 96%;
+
+    --popover: 220 25% 11%;
+    --popover-foreground: 40 33% 96%;
+
+    --primary: 40 33% 96%;
+    --primary-foreground: 220 30% 8%;
+
+    --secondary: 220 20% 16%;
+    --secondary-foreground: 40 33% 96%;
+
+    --muted: 220 17% 20%;
+    --muted-foreground: 36 16% 74%;
+
+    --accent: 18 88% 58%;
+    --accent-foreground: 0 0% 99%;
+    --accent-hover: 18 88% 52%;
+
+    --destructive: 359 75% 62%;
+    --destructive-foreground: 0 0% 99%;
+
+    --border: 218 15% 26%;
+    --input: 218 15% 26%;
+    --ring: 18 88% 58%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    @apply font-body bg-background text-foreground antialiased;
+    background-image: radial-gradient(circle at 10% 10%, hsl(var(--accent) / 0.16), transparent 34%),
+      radial-gradient(circle at 88% 15%, hsl(var(--primary) / 0.12), transparent 28%),
+      linear-gradient(180deg, hsl(var(--background)), hsl(var(--background)));
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .reveal-up {
+    animation: reveal-up 700ms var(--transition-base) both;
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
