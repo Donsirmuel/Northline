@@ -1,4 +1,4 @@
-# Launchframe Boilerplate
+# Arora Boilerplate
 
 Modern website scaffold built with React, TypeScript, Vite, Tailwind CSS, and shadcn/ui.
 
@@ -16,8 +16,8 @@ Use this repository as a quick starter for landing pages, product websites, SaaS
 ### 1) Clone and install
 
 ```sh
-git clone https://github.com/Donsirmuel/shindara-style-hub.git
-cd shindara-style-hub
+git clone https://github.com/Donsirmuel/Arora.git
+cd Arora
 npm install
 ```
 

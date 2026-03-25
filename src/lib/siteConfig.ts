@@ -4,8 +4,8 @@ export type SiteNavItem = {
 };
 
 export const siteConfig = {
-  name: "Launchframe",
-  tagline: "Ship your next website faster",
+  name: "Arora",
+  tagline: "Build your next website faster",
   description:
     "A flexible React + TypeScript + Vite boilerplate for landing pages, marketing sites, docs fronts, and startup websites.",
   ctaPrimary: {
