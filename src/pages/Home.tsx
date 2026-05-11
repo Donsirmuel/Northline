@@ -1,6 +1,6 @@
 import { ArrowRight, ChevronRight, ShieldCheck, Sparkles, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { products } from "@/lib/catalog";
+import { type Product, products } from "@/lib/catalog";
 import { siteConfig } from "@/lib/siteConfig";
 import { Link } from "react-router-dom";
 
@@ -31,10 +31,6 @@ const heroImages = [
     src: "/assets/pictures%20with%20names/the-3d-tee-mock.png",
     alt: "Textured Northline script tee detail",
   },
-  {
-    src: "/assets/pictures%20with%20names/the-god-tee-mock.png",
-    alt: "Northline graphic tee artwork",
-  },
 ];
 
 const categoryLinks = [
@@ -53,23 +49,25 @@ const categoryLinks = [
 ];
 
 export default function Home() {
-  const leadProduct = products[0];
-  const productPreview = products.slice(1, 5);
+  const leadProduct = products.find((product) => product.slug === "astro-tee") ?? products[0];
+  const productPreview = ["space-ape-tee", "rilla-tee", "roco-tee", "street-tee"]
+    .map((slug) => products.find((product) => product.slug === slug))
+    .filter((product): product is Product => Boolean(product));
 
   return (
     <div className="relative overflow-hidden pb-12 md:pb-20">
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-x-0 top-0 h-[34rem] bg-[linear-gradient(180deg,hsl(var(--secondary))_0%,hsl(var(--background))_76%)]" />
+        <div className="absolute inset-x-0 top-0 h-[26rem] bg-[linear-gradient(180deg,hsl(var(--secondary))_0%,hsl(var(--background))_82%)] md:h-[34rem]" />
         <div className="absolute left-0 top-24 hidden h-[28rem] w-[28rem] rounded-full bg-accent/10 blur-3xl md:block" />
         <div className="absolute right-0 top-28 hidden h-[30rem] w-[30rem] rounded-full bg-primary/10 blur-3xl md:block" />
       </div>
 
-      <section className="container mx-auto grid gap-10 px-4 pb-14 pt-10 md:grid-cols-[0.92fr_1.08fr] md:items-center md:gap-12 md:pb-20 md:pt-24 lg:min-h-[74vh] lg:gap-16">
+      <section className="container mx-auto grid gap-10 px-4 pb-16 pt-10 md:grid-cols-[0.92fr_1.08fr] md:items-center md:gap-12 md:pb-28 md:pt-24 lg:min-h-[76vh] lg:gap-16">
         <div className="max-w-3xl">
           <p className="reveal-up mb-4 inline-flex rounded-full border border-accent/25 bg-card/85 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground shadow-sm md:text-xs">
             New arrivals 2026
           </p>
-          <h1 className="reveal-up text-[3.1rem] font-black leading-[0.86] tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-[5.8rem]">
+          <h1 className="reveal-up text-[3.05rem] font-black leading-[0.88] tracking-tight text-foreground sm:text-6xl md:text-[4.7rem] lg:text-[5.8rem]">
             Northline Studio
             <span className="block max-w-[9ch] text-muted-foreground md:max-w-[10ch]">Street essentials.</span>
           </h1>
@@ -87,26 +85,25 @@ export default function Home() {
               <Link to={siteConfig.ctaSecondary.href}>Our story</Link>
             </Button>
           </div>
+
+          <div className="reveal-up mt-9 grid grid-cols-[5.25rem_1fr] items-center gap-4 md:hidden">
+            <div className="overflow-hidden rounded-2xl bg-card shadow-[0_18px_40px_-30px_rgb(20_26_45_/_0.65)]">
+              <img src={heroImages[0].src} alt={heroImages[0].alt} className="aspect-[4/5] w-full object-cover object-[50%_22%]" />
+            </div>
+            <div className="border-l border-border/70 pl-4">
+              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground">Northline fit</p>
+              <p className="mt-2 text-lg font-black leading-tight">Clean shapes, heavyweight feel, daily wear.</p>
+            </div>
+          </div>
         </div>
 
         <div className="reveal-up hidden md:block">
-          <div className="grid h-[28rem] grid-cols-[0.8fr_1fr] gap-4 lg:h-[34rem]">
-            <div className="flex flex-col gap-4">
-              <div className="overflow-hidden rounded-2xl bg-card shadow-[0_24px_54px_-36px_rgb(20_26_45_/_0.55)]">
-                <img src={heroImages[0].src} alt={heroImages[0].alt} className="h-full min-h-[15rem] w-full object-cover object-[50%_22%]" />
-              </div>
-              <div className="rounded-2xl border border-border/70 bg-card/85 p-5">
-                <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground">Northline fit</p>
-                <p className="mt-3 text-xl font-black leading-tight">Clean shapes. Heavy fabric. Sharp graphics.</p>
-              </div>
+          <div className="relative h-[27rem] lg:h-[34rem]">
+            <div className="absolute right-0 top-0 h-[82%] w-[72%] overflow-hidden rounded-[2rem] bg-card shadow-[0_34px_72px_-42px_rgb(20_26_45_/_0.62)]">
+              <img src={heroImages[0].src} alt={heroImages[0].alt} className="h-full w-full object-cover object-[50%_22%]" />
             </div>
-            <div className="grid grid-rows-[1fr_0.74fr] gap-4">
-              <div className="overflow-hidden rounded-3xl bg-primary shadow-[0_34px_70px_-36px_rgb(20_26_45_/_0.7)]">
-                <img src={heroImages[1].src} alt={heroImages[1].alt} className="h-full w-full object-cover object-[46%_42%]" />
-              </div>
-              <div className="overflow-hidden rounded-2xl bg-card">
-                <img src={heroImages[2].src} alt={heroImages[2].alt} className="h-full w-full object-cover object-center" />
-              </div>
+            <div className="absolute bottom-0 left-0 h-[42%] w-[54%] overflow-hidden rounded-3xl bg-primary shadow-[0_28px_62px_-42px_rgb(20_26_45_/_0.72)]">
+              <img src={heroImages[1].src} alt={heroImages[1].alt} className="h-full w-full object-cover object-[30%_48%]" />
             </div>
           </div>
         </div>
