@@ -153,6 +153,14 @@
     width: max-content;
   }
 
+  .mobile-product-rail {
+    scrollbar-width: none;
+  }
+
+  .mobile-product-rail::-webkit-scrollbar {
+    display: none;
+  }
+
   .hero-3d-viewport {
     perspective: 1200px;
     perspective-origin: 50% 40%;

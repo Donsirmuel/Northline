@@ -15,13 +15,13 @@ export function Header() {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/85 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/92 backdrop-blur-md md:bg-background/85">
       <div className="container mx-auto px-3 sm:px-4">
-        <div className="flex h-16 items-center justify-between gap-3 md:h-20">
+        <div className="flex h-14 items-center justify-between gap-3 md:h-20">
           <Link to="/" className="flex min-w-0 items-center gap-2.5 sm:gap-3">
-            <img src="/assets/pictures%20with%20names/arora-shield-logo.png" alt="Northline crest logo" className="h-8 w-8 rounded-sm object-contain" />
+            <img src="/assets/pictures%20with%20names/arora-shield-logo.png" alt="Northline crest logo" className="h-7 w-7 rounded-sm object-contain md:h-8 md:w-8" />
             <div className="flex min-w-0 flex-col leading-tight">
-              <span className="block truncate text-[15px] font-black tracking-tight sm:text-lg md:text-2xl">{siteConfig.name}</span>
+              <span className="block truncate text-sm font-black tracking-tight sm:text-lg md:text-2xl">{siteConfig.name}</span>
               <span className="hidden text-[10px] uppercase tracking-[0.2em] text-muted-foreground md:block">
                 Premium streetwear
               </span>
@@ -62,7 +62,7 @@ export function Header() {
 
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild className="md:hidden">
-                <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Button variant="ghost" size="icon" className="h-9 w-9 rounded-full text-muted-foreground transition-colors hover:text-foreground">
                   <Menu className="h-[18px] w-[18px]" />
                   <span className="sr-only">Toggle menu</span>
                 </Button>

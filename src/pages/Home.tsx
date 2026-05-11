@@ -1,244 +1,239 @@
 import { ArrowRight, ChevronRight, ShieldCheck, Sparkles, Truck } from "lucide-react";
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { featuredProducts } from "@/lib/catalog";
+import { products } from "@/lib/catalog";
 import { siteConfig } from "@/lib/siteConfig";
 import { Link } from "react-router-dom";
 
 const values = [
   {
     title: "Craft",
-    description: "Heavyweight fabrics, clean stitching, and fit engineering designed for daily movement.",
+    description: "Heavyweight fabric, clean finishing, and proportions designed for daily wear.",
     icon: Sparkles,
   },
   {
     title: "Delivery",
-    description: "Fast dispatch, transparent shipping updates, and tracked checkout from start to finish.",
+    description: "Tracked shipping updates from dispatch through checkout.",
     icon: Truck,
   },
   {
     title: "Trust",
-    description: "Secure Stripe checkout and a 30-day return window for confident buying decisions.",
+    description: "Secure payments and a 30-day return window.",
     icon: ShieldCheck,
   },
 ];
 
-const heroFrames = [
+const heroImages = [
   {
     src: "/assets/pictures%20with%20names/the-arora-cap-mock.png",
-    alt: "Editorial cap campaign",
+    alt: "Northline cap styled with a black tee",
   },
   {
     src: "/assets/pictures%20with%20names/the-3d-tee-mock.png",
-    alt: "3D script tee campaign",
+    alt: "Textured Northline script tee detail",
   },
   {
-    src: "/assets/pictures%20with%20names/the-fallen-tee-mock.png",
-    alt: "Fallen graphic tee campaign",
+    src: "/assets/pictures%20with%20names/the-god-tee-mock.png",
+    alt: "Northline graphic tee artwork",
+  },
+];
+
+const categoryLinks = [
+  {
+    title: "Statement tees",
+    description: "Graphic-led pieces that carry the outfit.",
+  },
+  {
+    title: "Daily essentials",
+    description: "Clean heavyweight staples for repeat wear.",
+  },
+  {
+    title: "Layering pieces",
+    description: "Easy silhouettes built to sit under outerwear.",
   },
 ];
 
 export default function Home() {
-  const carouselFrames = heroFrames;
-  const [hoveredPos, setHoveredPos] = useState<number | null>(null);
+  const leadProduct = products[0];
+  const productPreview = products.slice(1, 5);
 
   return (
     <div className="relative overflow-hidden pb-12 md:pb-20">
       <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -left-20 top-0 h-80 w-80 rounded-full bg-accent/20 blur-3xl" />
-        <div className="absolute right-0 top-36 h-80 w-80 rounded-full bg-primary/10 blur-3xl" />
-        <div className="absolute inset-x-0 top-0 h-[32rem] bg-gradient-to-b from-secondary/55 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-[34rem] bg-[linear-gradient(180deg,hsl(var(--secondary))_0%,hsl(var(--background))_76%)]" />
+        <div className="absolute left-0 top-24 hidden h-[28rem] w-[28rem] rounded-full bg-accent/10 blur-3xl md:block" />
+        <div className="absolute right-0 top-28 hidden h-[30rem] w-[30rem] rounded-full bg-primary/10 blur-3xl md:block" />
       </div>
 
-      <section className="container mx-auto grid gap-7 px-4 pb-12 pt-10 md:pb-20 md:pt-20 lg:grid-cols-[1.05fr_0.95fr] lg:items-end lg:min-h-[72vh]">
-        <div className="order-1 lg:order-1">
-          <p className="reveal-up mb-4 inline-flex rounded-full border border-accent/30 bg-card/80 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground md:text-xs">
-            New Arrivals 2026
+      <section className="container mx-auto grid gap-10 px-4 pb-14 pt-10 md:grid-cols-[0.92fr_1.08fr] md:items-center md:gap-12 md:pb-20 md:pt-24 lg:min-h-[74vh] lg:gap-16">
+        <div className="max-w-3xl">
+          <p className="reveal-up mb-4 inline-flex rounded-full border border-accent/25 bg-card/85 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground shadow-sm md:text-xs">
+            New arrivals 2026
           </p>
-          <h1 className="reveal-up max-w-3xl text-3xl font-black leading-[0.98] sm:text-5xl md:text-7xl">
-            {siteConfig.name}
-            <span className="mt-2 block text-muted-foreground">{siteConfig.tagline}</span>
+          <h1 className="reveal-up text-[3.1rem] font-black leading-[0.86] tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-[5.8rem]">
+            Northline Studio
+            <span className="block max-w-[9ch] text-muted-foreground md:max-w-[10ch]">Street essentials.</span>
           </h1>
-          <p className="reveal-up mt-4 max-w-xl text-sm text-muted-foreground sm:text-base md:text-lg">
-            Street-lux essentials built with premium cotton, oversized confidence, and silhouettes made for movement.
+          <p className="reveal-up mt-5 max-w-xl text-base leading-7 text-muted-foreground md:text-lg">
+            Premium streetwear built around relaxed proportions, heavyweight comfort, and graphic restraint.
           </p>
-          <div className="reveal-up mt-6 flex flex-col gap-3 sm:flex-row">
-            <Button asChild size="lg" className="w-full sm:w-auto">
+          <div className="reveal-up mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button asChild size="lg" className="h-12 rounded-full px-6 sm:w-auto md:rounded-md">
               <Link to={siteConfig.ctaPrimary.href}>
-                {siteConfig.ctaPrimary.label}
+                Shop collection
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
-              <Link to={siteConfig.ctaSecondary.href}>{siteConfig.ctaSecondary.label}</Link>
+            <Button asChild variant="outline" size="lg" className="h-12 rounded-full px-6 sm:w-auto md:rounded-md">
+              <Link to={siteConfig.ctaSecondary.href}>Our story</Link>
             </Button>
           </div>
         </div>
 
-        <div className="reveal-up mt-8 lg:hidden">
-          <div className="relative rounded-[1.6rem] border border-border/70 bg-card/85 p-3 shadow-lg">
-            <div className="overflow-hidden rounded-[1.2rem] border border-border/60 bg-background">
+        <div className="reveal-up hidden md:block">
+          <div className="grid h-[28rem] grid-cols-[0.8fr_1fr] gap-4 lg:h-[34rem]">
+            <div className="flex flex-col gap-4">
+              <div className="overflow-hidden rounded-2xl bg-card shadow-[0_24px_54px_-36px_rgb(20_26_45_/_0.55)]">
+                <img src={heroImages[0].src} alt={heroImages[0].alt} className="h-full min-h-[15rem] w-full object-cover object-[50%_22%]" />
+              </div>
+              <div className="rounded-2xl border border-border/70 bg-card/85 p-5">
+                <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground">Northline fit</p>
+                <p className="mt-3 text-xl font-black leading-tight">Clean shapes. Heavy fabric. Sharp graphics.</p>
+              </div>
+            </div>
+            <div className="grid grid-rows-[1fr_0.74fr] gap-4">
+              <div className="overflow-hidden rounded-3xl bg-primary shadow-[0_34px_70px_-36px_rgb(20_26_45_/_0.7)]">
+                <img src={heroImages[1].src} alt={heroImages[1].alt} className="h-full w-full object-cover object-[46%_42%]" />
+              </div>
+              <div className="overflow-hidden rounded-2xl bg-card">
+                <img src={heroImages[2].src} alt={heroImages[2].alt} className="h-full w-full object-cover object-center" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {leadProduct && (
+        <section className="container mx-auto px-4 pb-16 md:pb-20">
+          <div className="grid gap-6 md:grid-cols-[0.95fr_1.05fr] md:items-center md:gap-10">
+            <div className="max-w-xl">
+              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground md:text-xs">Featured piece</p>
+              <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight md:text-5xl">{leadProduct.name}</h2>
+              <p className="mt-4 text-base leading-7 text-muted-foreground">{leadProduct.subtitle}. Cut for easy daily wear with the weight and finish Northline is built around.</p>
+              <div className="mt-7 flex items-center gap-4">
+                <Button asChild className="rounded-full px-6 md:rounded-md">
+                  <Link to={`/shop/${leadProduct.slug}`}>
+                    View piece
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <p className="text-lg font-black">${leadProduct.price}</p>
+              </div>
+            </div>
+            <Link to={`/shop/${leadProduct.slug}`} className="group block overflow-hidden rounded-[1.75rem] bg-primary shadow-[0_28px_64px_-42px_rgb(20_26_45_/_0.75)]">
               <img
-                src={heroFrames[1].src}
-                alt={heroFrames[1].alt}
-                className="aspect-[16/11] max-h-[12rem] w-full object-cover"
-                loading="eager"
+                src={leadProduct.image}
+                alt={leadProduct.name}
+                className="aspect-[5/4] w-full object-cover object-[45%_44%] transition-transform duration-500 group-hover:scale-[1.03] md:aspect-[4/3]"
               />
-            </div>
-            <div className="absolute -bottom-4 right-4 w-[46%] overflow-hidden rounded-[1rem] border border-border/70 bg-background shadow-[0_16px_30px_-20px_rgba(15,23,42,0.45)]">
-              <img
-                src={heroFrames[0].src}
-                alt={heroFrames[0].alt}
-                className="aspect-[4/5] w-full object-cover"
-                loading="lazy"
-              />
-            </div>
+            </Link>
           </div>
-        </div>
+        </section>
+      )}
 
-        <div className="reveal-up order-3 hidden h-full items-center hero-3d-viewport lg:flex">
-          <div className="relative h-[28rem] w-full overflow-hidden sm:h-[34rem] lg:h-full">
-            <div className="hero-carousel-track flex h-full items-center gap-4 sm:gap-6">
-              {carouselFrames.map((frame, index) => {
-                const position = index; // 0,1,2
-                const isHovered = hoveredPos === position;
-
-                const baseTransform =
-                  position === 0
-                    ? "origin-right -rotate-6 translate-x-8 translate-y-8 scale-[0.92] z-10 hidden sm:block"
-                    : position === 1
-                      ? "relative z-40 scale-[1] sm:-translate-y-6 sm:scale-[1.04] shadow-[0_28px_44px_-22px_rgb(20_26_45_/_0.38)]"
-                      : "origin-left rotate-6 -translate-x-8 translate-y-8 scale-[0.92] z-10 hidden sm:block";
-
-                const activeTransform = "relative z-50 -translate-y-2 scale-[1.08] rotate-0 translate-x-0 shadow-[0_40px_80px_-30px_rgb(20_26_45_/_0.5)]";
-
-                const transformClass = isHovered ? activeTransform : baseTransform;
-
-                return (
-                  <div
-                    key={`${frame.alt}-${index}`}
-                    className="hero-carousel-slide basis-full shrink-0 px-1 sm:basis-1/3 sm:px-2 h-full"
-                    onMouseEnter={() => setHoveredPos(position)}
-                    onMouseLeave={() => setHoveredPos(null)}
-                  >
-                    <div
-                      className={`overflow-hidden rounded-3xl bg-card h-full min-h-[22rem] transition-transform duration-600 ease-custom will-change-transform ${transformClass}`}
-                    >
-                      <img
-                        src={frame.src}
-                        alt={frame.alt}
-                        className="w-full h-full object-cover slide-sway"
-                        style={{ animationDelay: `${index * 0.35}s` }}
-                      />
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="container mx-auto px-4 pb-8 md:pb-16">
-        <div className="reveal-up rounded-[1.6rem] border border-border/70 bg-card/75 p-4 md:p-6">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-2xl space-y-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Featured products</p>
-              <h2 className="text-lg font-black leading-tight sm:text-xl md:text-4xl">A closer look at the pieces people actually buy.</h2>
-            </div>
-            <Button asChild variant="outline" className="w-full md:w-auto">
-              <Link to="/shop">
-                View full shop
-                <ChevronRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-
-          <div className="mt-4 grid grid-cols-2 gap-2 md:mt-6 md:grid-cols-3 md:gap-3">
-            {featuredProducts.map((product, index) => (
-              <Link
-                key={product.id}
-                to={`/shop/${product.slug}`}
-                className="group overflow-hidden rounded-xl border border-border/70 bg-background"
-                style={{ animationDelay: `${80 * index}ms` }}
-              >
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:aspect-[4/5]"
-                />
-                <div className="p-2 sm:p-3 md:p-4">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">{product.category}</p>
-                  <h2 className="mt-1 text-sm font-black sm:mt-2 sm:text-base md:text-xl lg:text-2xl">{product.name}</h2>
-                  <div className="mt-2 flex items-center justify-between sm:mt-3">
-                    <p className="text-[11px] text-muted-foreground sm:text-xs md:text-sm">${product.price}</p>
-                    <span className="text-xs font-semibold sm:text-sm">View item</span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="container mx-auto px-4 pb-12 md:pb-20">
-        <div className="grid gap-4 md:grid-cols-3">
-          <Link to="/shop" className="group rounded-2xl border border-border/70 bg-card/80 p-5 transition-transform duration-300 hover:-translate-y-1">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Shop by edit</p>
-            <h3 className="mt-2 text-2xl font-black">Statement tees</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Bold graphics, clean cuts, and the pieces that define the drop.</p>
-          </Link>
-          <Link to="/shop" className="group rounded-2xl border border-border/70 bg-card/80 p-5 transition-transform duration-300 hover:-translate-y-1">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Shop by edit</p>
-            <h3 className="mt-2 text-2xl font-black">Heavy layers</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Street-ready hoodies and outerwear with a sharper silhouette.</p>
-          </Link>
-          <Link to="/shop" className="group rounded-2xl border border-border/70 bg-card/80 p-5 transition-transform duration-300 hover:-translate-y-1">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Shop by edit</p>
-            <h3 className="mt-2 text-2xl font-black">New season essentials</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Quiet pieces, premium fabric, and the foundation of the collection.</p>
-          </Link>
-        </div>
-      </section>
-
-      <section className="container mx-auto px-4 pb-12 md:pb-20">
-        <div className="reveal-up grid gap-5 rounded-[1.6rem] border border-border/75 bg-gradient-to-br from-primary to-primary/80 p-6 text-primary-foreground md:grid-cols-3 md:p-10">
+      <section className="container mx-auto px-4 pb-16 md:pb-20">
+        <div className="flex items-end justify-between gap-5">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/70">Editorial Capsule</p>
-            <h3 className="mt-3 text-2xl font-black leading-tight md:text-3xl">Built for presence. Designed for movement.</h3>
+            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground md:text-xs">Latest pieces</p>
+            <h2 className="mt-2 text-3xl font-black leading-tight md:text-5xl">Shop the essentials.</h2>
           </div>
-          <div className="text-sm leading-relaxed text-primary-foreground/82 md:col-span-2 md:text-base">
-            Northline combines fitted tailoring with expressive graphics and heavyweight textile standards to create pieces
-            that feel contemporary, confident, and unmistakably premium.
+          <Button asChild variant="outline" className="hidden md:inline-flex">
+            <Link to="/shop">
+              View full shop
+              <ChevronRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+          <Button asChild variant="outline" size="icon" className="h-11 w-11 shrink-0 rounded-full md:hidden">
+            <Link to="/shop" aria-label="View full shop">
+              <ChevronRight className="h-4 w-4" />
+            </Link>
+          </Button>
+        </div>
+
+        <div className="mobile-product-rail -mx-4 mt-6 flex snap-x gap-3 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-4 md:gap-4 md:overflow-visible md:px-0 md:pb-0">
+          {productPreview.map((product) => (
+            <Link
+              key={product.id}
+              to={`/shop/${product.slug}`}
+              className="group w-[74vw] max-w-[18rem] shrink-0 snap-start overflow-hidden rounded-2xl border border-border/70 bg-card shadow-sm transition-transform duration-300 hover:-translate-y-1 md:w-auto md:max-w-none"
+            >
+              <img src={product.image} alt={product.name} className="aspect-[4/5] w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="p-4">
+                <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground">{product.category}</p>
+                <h3 className="mt-2 text-lg font-black leading-tight">{product.name}</h3>
+                <div className="mt-4 flex items-center justify-between text-sm">
+                  <span className="font-bold text-muted-foreground">${product.price}</span>
+                  <span className="font-bold">View</span>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="container mx-auto px-4 pb-16 md:pb-20">
+        <div className="border-y border-border/70 py-10 md:py-12">
+          <div className="grid gap-8 md:grid-cols-[0.72fr_1.28fr] md:items-start">
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground md:text-xs">Shop by edit</p>
+              <h2 className="mt-2 text-3xl font-black leading-tight md:text-4xl">Find the piece by how you wear it.</h2>
+            </div>
+            <div className="grid gap-3 md:grid-cols-3">
+              {categoryLinks.map((category) => (
+                <Link key={category.title} to="/shop" className="group border-b border-border/80 pb-5 md:border md:bg-card md:p-5">
+                  <div className="flex items-center justify-between gap-3">
+                    <h3 className="text-xl font-black leading-tight">{category.title}</h3>
+                    <ChevronRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1" />
+                  </div>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{category.description}</p>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="container mx-auto grid gap-4 px-4 pb-12 md:grid-cols-3">
-        {values.map((feature, index) => (
-          <article
-            key={feature.title}
-            className="reveal-up rounded-2xl border border-border/80 bg-card/80 p-6 shadow-sm backdrop-blur"
-            style={{ animationDelay: `${index * 120}ms` }}
-          >
-            <feature.icon className="mb-4 h-5 w-5 text-accent" />
-            <h2 className="text-lg font-bold sm:text-xl">{feature.title}</h2>
-            <p className="mt-2 text-sm text-muted-foreground">{feature.description}</p>
-          </article>
-        ))}
+      <section className="container mx-auto px-4 pb-16 md:pb-20">
+        <div className="grid gap-8 bg-primary px-5 py-8 text-primary-foreground md:grid-cols-[0.75fr_1.25fr] md:px-10 md:py-12">
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-primary-foreground/65 md:text-xs">Material and fit</p>
+            <h2 className="mt-3 text-3xl font-black leading-tight md:text-4xl">Built for presence. Designed for movement.</h2>
+          </div>
+          <div>
+            <p className="max-w-2xl text-base leading-7 text-primary-foreground/82 md:text-lg">
+              Northline combines heavyweight cotton, relaxed proportions, and considered graphics so each piece feels strong without overpowering the rest of the outfit.
+            </p>
+            <div className="mt-8 grid gap-5 md:grid-cols-3">
+              {values.map((feature) => (
+                <article key={feature.title}>
+                  <feature.icon className="h-5 w-5 text-accent" />
+                  <h3 className="mt-4 text-lg font-black">{feature.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-primary-foreground/72">{feature.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="container mx-auto px-4">
-        <div className="reveal-up rounded-2xl border border-border/70 bg-gradient-to-br from-card via-card to-secondary/40 p-6 md:p-10">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Join the private list</p>
-              <h3 className="mt-2 text-2xl font-black md:text-4xl">Get first access to drops and restocks.</h3>
-            </div>
-            <Button asChild size="lg">
-              <Link to="/contact">Request early access</Link>
-            </Button>
+        <div className="grid gap-6 border-t border-border/70 pt-10 md:grid-cols-[1fr_auto] md:items-center">
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground md:text-xs">Private list</p>
+            <h2 className="mt-2 max-w-2xl text-3xl font-black leading-tight md:text-5xl">Get first access to Northline drops.</h2>
           </div>
+          <Button asChild size="lg" className="h-12 rounded-full px-6 md:rounded-md">
+            <Link to="/contact">Request early access</Link>
+          </Button>
         </div>
       </section>
     </div>
