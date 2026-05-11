@@ -27,9 +27,11 @@ export default function Contact() {
     <div className="container mx-auto px-4 py-16 md:py-20">
       <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-3">
         <section className="reveal-up space-y-4 lg:col-span-1">
-          <h1 className="text-3xl font-black md:text-4xl">Contact</h1>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Contact</p>
+          <h1 className="text-3xl font-black md:text-4xl">Talk to the Northline team.</h1>
           <p className="text-muted-foreground">
-            Replace these placeholders with your real support and business contact channels.
+            For support, collaborations, or wholesale requests, send a message and we will get back within one business
+            day.
           </p>
 
           <Card>
@@ -57,12 +59,25 @@ export default function Contact() {
               </div>
             </CardContent>
           </Card>
+
+          <Card>
+            <CardContent className="space-y-2 p-5 text-sm text-muted-foreground">
+              <p className="font-semibold text-foreground">Response times</p>
+              <p>Customer support: under 24h</p>
+              <p>Wholesale and press: under 48h</p>
+            </CardContent>
+          </Card>
         </section>
 
         <section className="reveal-up lg:col-span-2">
           <Card>
             <CardContent className="p-6 md:p-8">
               <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="space-y-2">
+                  <Label htmlFor="topic">Topic</Label>
+                  <Input id="topic" placeholder="Support, collaboration, wholesale..." />
+                </div>
+
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="space-y-2">
                     <Label htmlFor="name">Name</Label>

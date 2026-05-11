@@ -1,23 +1,31 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu } from "lucide-react";
+import { Menu, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
 import { siteConfig } from "@/lib/siteConfig";
+import { useCart } from "@/hooks/use-cart";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { itemCount } = useCart();
 
   const isActive = (path: string) => location.pathname === path;
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/85 backdrop-blur-md">
       <div className="container mx-auto px-3 sm:px-4">
-        <div className="flex h-16 items-center justify-between md:h-20">
-          <Link to="/" className="flex items-center">
-            <span className="text-lg font-black tracking-tight md:text-2xl">{siteConfig.name}</span>
+        <div className="flex h-16 items-center justify-between gap-3 md:h-20">
+          <Link to="/" className="flex min-w-0 items-center gap-2.5 sm:gap-3">
+            <img src="/assets/pictures%20with%20names/arora-shield-logo.png" alt="Northline crest logo" className="h-8 w-8 rounded-sm object-contain" />
+            <div className="flex min-w-0 flex-col leading-tight">
+              <span className="block truncate text-[15px] font-black tracking-tight sm:text-lg md:text-2xl">{siteConfig.name}</span>
+              <span className="hidden text-[10px] uppercase tracking-[0.2em] text-muted-foreground md:block">
+                Premium streetwear
+              </span>
+            </div>
           </Link>
 
           <nav className="hidden md:flex items-center space-x-6">
@@ -37,6 +45,17 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-2">
+            <Button asChild variant="ghost" size="icon" className="relative hidden md:inline-flex">
+              <Link to="/cart" aria-label="Open cart">
+                <ShoppingBag className="h-4 w-4" />
+                {itemCount > 0 && (
+                  <span className="absolute -right-1 -top-1 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-accent px-1 text-[10px] font-bold text-accent-foreground">
+                    {itemCount}
+                  </span>
+                )}
+              </Link>
+            </Button>
+
             <Button asChild className="hidden md:inline-flex" size="sm">
               <Link to={siteConfig.ctaPrimary.href}>{siteConfig.ctaPrimary.label}</Link>
             </Button>
@@ -48,7 +67,7 @@ export function Header() {
                   <span className="sr-only">Toggle menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[300px]">
+              <SheetContent side="right" className="w-[88vw] max-w-[320px]">
                 <SheetHeader>
                   <SheetTitle className="text-2xl font-bold">Menu</SheetTitle>
                 </SheetHeader>
@@ -68,6 +87,14 @@ export function Header() {
                       </Link>
                     );
                   })}
+                  <Link
+                    to="/cart"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="mt-2 flex items-center justify-between rounded-md px-4 py-3 text-base font-medium text-foreground transition-all hover:bg-accent/20"
+                  >
+                    <span>Cart</span>
+                    <span className="rounded-full bg-muted px-2 py-0.5 text-xs font-bold">{itemCount}</span>
+                  </Link>
                   <Button asChild className="mt-4 w-full">
                     <Link to={siteConfig.ctaPrimary.href} onClick={() => setMobileMenuOpen(false)}>
                       {siteConfig.ctaPrimary.label}

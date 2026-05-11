@@ -4,26 +4,27 @@ export type SiteNavItem = {
 };
 
 export const siteConfig = {
-  name: "Arora",
-  tagline: "Build your next website faster",
+  name: "Northline Studio",
+  tagline: "Street essentials, reimagined.",
   description:
-    "A flexible React + TypeScript + Vite boilerplate for landing pages, marketing sites, docs fronts, and startup websites.",
+    "An independent streetwear label balancing clean tailoring, elevated fabrics, and bold visual identity.",
   ctaPrimary: {
-    label: "Start Building",
-    href: "/contact",
+    label: "Shop collection",
+    href: "/shop",
   },
   ctaSecondary: {
-    label: "See the Blueprint",
+    label: "Our story",
     href: "/about",
   },
   nav: [
     { label: "Home", href: "/" },
+    { label: "Shop", href: "/shop" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ] as SiteNavItem[],
   contact: {
-    email: "hello@example.com",
-    phone: "+1 (000) 000-0000",
-    address: "123 Placeholder Street, Your City",
+    email: "support@northlinestudio.co",
+    phone: "+44 20 7123 8890",
+    address: "Cardiff Creative Quarter, UK",
   },
 };
