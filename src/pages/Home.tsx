@@ -28,8 +28,8 @@ const heroImages = [
     alt: "Northline cap styled with a black tee",
   },
   {
-    src: "/assets/pictures%20with%20names/the-3d-tee-mock.png",
-    alt: "Textured Northline script tee detail",
+    src: "/assets/pictures%20with%20names/the-fallen-tee-mock.png",
+    alt: "Northline garment texture detail",
   },
 ];
 
@@ -56,13 +56,13 @@ export default function Home() {
 
   return (
     <div className="relative overflow-hidden pb-12 md:pb-20">
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-x-0 top-0 h-[26rem] bg-[linear-gradient(180deg,hsl(var(--secondary))_0%,hsl(var(--background))_82%)] md:h-[34rem]" />
-        <div className="absolute left-0 top-24 hidden h-[28rem] w-[28rem] rounded-full bg-accent/10 blur-3xl md:block" />
-        <div className="absolute right-0 top-28 hidden h-[30rem] w-[30rem] rounded-full bg-primary/10 blur-3xl md:block" />
-      </div>
+      <section className="relative overflow-hidden border-b border-border/70 bg-[linear-gradient(180deg,hsl(var(--secondary))_0%,hsl(var(--background))_100%)]">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute left-0 top-24 hidden h-[28rem] w-[28rem] rounded-full bg-accent/10 blur-3xl md:block" />
+          <div className="absolute right-0 top-28 hidden h-[30rem] w-[30rem] rounded-full bg-primary/10 blur-3xl md:block" />
+        </div>
 
-      <section className="container mx-auto grid gap-10 px-4 pb-16 pt-10 md:grid-cols-[0.92fr_1.08fr] md:items-center md:gap-12 md:pb-28 md:pt-24 lg:min-h-[76vh] lg:gap-16">
+        <div className="container relative z-10 mx-auto grid gap-10 px-4 pb-16 pt-10 md:grid-cols-[0.92fr_1.08fr] md:items-center md:gap-12 md:pb-24 md:pt-24 lg:min-h-[76vh] lg:gap-16">
         <div className="max-w-3xl">
           <p className="reveal-up mb-4 inline-flex rounded-full border border-accent/25 bg-card/85 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground shadow-sm md:text-xs">
             New arrivals 2026
@@ -91,7 +91,7 @@ export default function Home() {
               <img src={heroImages[0].src} alt={heroImages[0].alt} className="aspect-[4/5] w-full object-cover object-[50%_22%]" />
             </div>
             <div className="border-l border-border/70 pl-4">
-              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground">Northline fit</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground">Fit note</p>
               <p className="mt-2 text-lg font-black leading-tight">Clean shapes, heavyweight feel, daily wear.</p>
             </div>
           </div>
@@ -102,21 +102,22 @@ export default function Home() {
             <div className="absolute right-0 top-0 h-[82%] w-[72%] overflow-hidden rounded-[2rem] bg-card shadow-[0_34px_72px_-42px_rgb(20_26_45_/_0.62)]">
               <img src={heroImages[0].src} alt={heroImages[0].alt} className="h-full w-full object-cover object-[50%_22%]" />
             </div>
-            <div className="absolute bottom-0 left-0 h-[42%] w-[54%] overflow-hidden rounded-3xl bg-primary shadow-[0_28px_62px_-42px_rgb(20_26_45_/_0.72)]">
-              <img src={heroImages[1].src} alt={heroImages[1].alt} className="h-full w-full object-cover object-[30%_48%]" />
+            <div className="absolute bottom-0 left-0 h-[38%] w-[50%] overflow-hidden rounded-3xl bg-primary shadow-[0_28px_62px_-42px_rgb(20_26_45_/_0.72)]">
+              <img src={heroImages[1].src} alt={heroImages[1].alt} className="h-full w-full object-cover object-center" />
             </div>
           </div>
+        </div>
         </div>
       </section>
 
       {leadProduct && (
-        <section className="container mx-auto px-4 pb-16 md:pb-20">
-          <div className="grid gap-6 md:grid-cols-[0.95fr_1.05fr] md:items-center md:gap-10">
+        <section className="container mx-auto px-4 pb-14 pt-14 md:pb-24 md:pt-20">
+          <div className="grid gap-7 md:grid-cols-[0.9fr_1.1fr] md:items-center md:gap-12">
             <div className="max-w-xl">
               <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground md:text-xs">Featured piece</p>
               <h2 className="mt-3 text-3xl font-black leading-tight tracking-tight md:text-5xl">{leadProduct.name}</h2>
-              <p className="mt-4 text-base leading-7 text-muted-foreground">{leadProduct.subtitle}. Cut for easy daily wear with the weight and finish Northline is built around.</p>
-              <div className="mt-7 flex items-center gap-4">
+              <p className="mt-4 max-w-lg text-base leading-7 text-muted-foreground">{leadProduct.subtitle}. Cut for daily wear with the weight and finish Northline is built around.</p>
+              <div className="mt-6 flex items-center gap-4 md:mt-7">
                 <Button asChild className="rounded-full px-6 md:rounded-md">
                   <Link to={`/shop/${leadProduct.slug}`}>
                     View piece
@@ -130,14 +131,14 @@ export default function Home() {
               <img
                 src={leadProduct.image}
                 alt={leadProduct.name}
-                className="aspect-[5/4] w-full object-cover object-[45%_44%] transition-transform duration-500 group-hover:scale-[1.03] md:aspect-[4/3]"
+                className="aspect-[16/10] w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03] md:aspect-[4/3]"
               />
             </Link>
           </div>
         </section>
       )}
 
-      <section className="container mx-auto px-4 pb-16 md:pb-20">
+      <section className="container mx-auto px-4 pb-16 md:pb-24">
         <div className="flex items-end justify-between gap-5">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground md:text-xs">Latest pieces</p>
@@ -156,7 +157,7 @@ export default function Home() {
           </Button>
         </div>
 
-        <div className="mobile-product-rail -mx-4 mt-6 flex snap-x gap-3 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-4 md:gap-4 md:overflow-visible md:px-0 md:pb-0">
+        <div className="mobile-product-rail -mx-4 mt-6 flex snap-x gap-3 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-2 md:gap-4 md:overflow-visible md:px-0 md:pb-0 lg:grid-cols-4">
           {productPreview.map((product) => (
             <Link
               key={product.id}
@@ -177,18 +178,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container mx-auto px-4 pb-16 md:pb-20">
+      <section className="container mx-auto px-4 pb-16 md:pb-24">
         <div className="border-y border-border/70 py-10 md:py-12">
-          <div className="grid gap-8 md:grid-cols-[0.72fr_1.28fr] md:items-start">
+          <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-muted-foreground md:text-xs">Shop by edit</p>
-              <h2 className="mt-2 text-3xl font-black leading-tight md:text-4xl">Find the piece by how you wear it.</h2>
+              <h2 className="mt-2 text-3xl font-black leading-tight md:text-4xl">Shop by category.</h2>
             </div>
-            <div className="grid gap-3 md:grid-cols-3">
+            <div className="grid gap-4 md:grid-cols-3">
               {categoryLinks.map((category) => (
                 <Link key={category.title} to="/shop" className="group border-b border-border/80 pb-5 md:border md:bg-card md:p-5">
                   <div className="flex items-center justify-between gap-3">
-                    <h3 className="text-xl font-black leading-tight">{category.title}</h3>
+                    <h3 className="text-lg font-black leading-tight lg:text-xl">{category.title}</h3>
                     <ChevronRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1" />
                   </div>
                   <p className="mt-2 text-sm leading-6 text-muted-foreground">{category.description}</p>
@@ -199,22 +200,22 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container mx-auto px-4 pb-16 md:pb-20">
-        <div className="grid gap-8 bg-primary px-5 py-8 text-primary-foreground md:grid-cols-[0.75fr_1.25fr] md:px-10 md:py-12">
+      <section className="container mx-auto px-4 pb-16 md:pb-24">
+        <div className="grid gap-7 bg-primary px-5 py-7 text-primary-foreground md:grid-cols-[0.75fr_1.25fr] md:gap-8 md:px-10 md:py-12">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-primary-foreground/65 md:text-xs">Material and fit</p>
-            <h2 className="mt-3 text-3xl font-black leading-tight md:text-4xl">Built for presence. Designed for movement.</h2>
+            <h2 className="mt-3 text-2xl font-black leading-tight md:text-4xl">Built for presence. Designed for movement.</h2>
           </div>
           <div>
-            <p className="max-w-2xl text-base leading-7 text-primary-foreground/82 md:text-lg">
+            <p className="max-w-2xl text-sm leading-6 text-primary-foreground/82 md:text-lg md:leading-7">
               Northline combines heavyweight cotton, relaxed proportions, and considered graphics so each piece feels strong without overpowering the rest of the outfit.
             </p>
-            <div className="mt-8 grid gap-5 md:grid-cols-3">
+            <div className="mt-7 grid gap-4 md:mt-8 md:grid-cols-3 md:gap-5">
               {values.map((feature) => (
-                <article key={feature.title}>
-                  <feature.icon className="h-5 w-5 text-accent" />
-                  <h3 className="mt-4 text-lg font-black">{feature.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-primary-foreground/72">{feature.description}</p>
+                <article key={feature.title} className="grid grid-cols-[auto_1fr] gap-x-3 md:block">
+                  <feature.icon className="mt-1 h-4 w-4 text-accent md:mt-0 md:h-5 md:w-5" />
+                  <h3 className="text-base font-black md:mt-4 md:text-lg">{feature.title}</h3>
+                  <p className="col-start-2 mt-1 text-sm leading-6 text-primary-foreground/72 md:col-start-auto md:mt-2">{feature.description}</p>
                 </article>
               ))}
             </div>
