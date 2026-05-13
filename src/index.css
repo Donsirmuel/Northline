@@ -4,34 +4,34 @@
 
 @layer base {
   :root {
-    --background: 45 33% 98%;
-    --foreground: 221 36% 16%;
+    --background: 42 30% 97%;
+    --foreground: 214 30% 14%;
 
     --card: 0 0% 100%;
-    --card-foreground: 221 36% 16%;
+    --card-foreground: 214 30% 14%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 221 36% 16%;
+    --popover-foreground: 214 30% 14%;
 
-    --primary: 221 48% 20%;
+    --primary: 214 30% 14%;
     --primary-foreground: 0 0% 99%;
 
-    --secondary: 42 40% 94%;
-    --secondary-foreground: 220 35% 24%;
+    --secondary: 202 24% 91%;
+    --secondary-foreground: 214 24% 20%;
 
-    --muted: 42 28% 91%;
-    --muted-foreground: 220 15% 40%;
+    --muted: 204 18% 88%;
+    --muted-foreground: 213 12% 38%;
 
-    --accent: 18 88% 56%;
+    --accent: 31 82% 52%;
     --accent-foreground: 0 0% 99%;
-    --accent-hover: 18 88% 52%;
+    --accent-hover: 31 82% 46%;
 
     --destructive: 359 75% 56%;
     --destructive-foreground: 0 0% 99%;
 
-    --border: 36 26% 84%;
-    --input: 36 26% 84%;
-    --ring: 18 88% 56%;
+    --border: 205 16% 80%;
+    --input: 205 16% 80%;
+    --ring: 31 82% 52%;
 
     --radius: 0.9rem;
 
@@ -91,9 +91,7 @@
 
   body {
     @apply font-body bg-background text-foreground antialiased;
-    background-image: radial-gradient(circle at 10% 10%, hsl(var(--accent) / 0.16), transparent 34%),
-      radial-gradient(circle at 88% 15%, hsl(var(--primary) / 0.12), transparent 28%),
-      linear-gradient(180deg, hsl(var(--background)), hsl(var(--background)));
+    background-image: linear-gradient(180deg, hsl(var(--background)), hsl(var(--background)));
   }
 
   h1,

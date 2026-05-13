@@ -28,7 +28,7 @@ export default function About() {
 
         <div className="reveal-up mt-10 overflow-hidden rounded-[1.4rem] border border-border/75 bg-card/70 p-2">
           <img
-            src="/assets/pictures%20with%20names/the-fallen-tee-mock.png"
+            src="/assets/northline/Polar%20Bear-back%20view.png"
             alt="Northline studio moodboard"
             className="aspect-[16/7] w-full rounded-xl object-cover"
           />

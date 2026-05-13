@@ -1,4 +1,4 @@
-# Arora Boilerplate
+# Northline Boilerplate
 
 Modern website scaffold built with React, TypeScript, Vite, Tailwind CSS, and shadcn/ui.
 
@@ -16,8 +16,8 @@ Use this repository as a quick starter for landing pages, product websites, SaaS
 ### 1) Clone and install
 
 ```sh
-git clone https://github.com/Donsirmuel/Arora.git
-cd Arora
+git clone https://github.com/Donsirmuel/Northline.git
+cd Northline
 npm install
 ```
 

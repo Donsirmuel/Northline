@@ -4,10 +4,10 @@ export type SiteNavItem = {
 };
 
 export const siteConfig = {
-  name: "Northline Studio",
-  tagline: "Street essentials, reimagined.",
+  name: "Northline",
+  tagline: "Streetwear, built north.",
   description:
-    "An independent streetwear label balancing clean tailoring, elevated fabrics, and bold visual identity.",
+    "An independent streetwear label balancing technical utility, heavyweight fabrics, and graphic restraint.",
   ctaPrimary: {
     label: "Shop collection",
     href: "/shop",
@@ -23,7 +23,7 @@ export const siteConfig = {
     { label: "Contact", href: "/contact" },
   ] as SiteNavItem[],
   contact: {
-    email: "support@northlinestudio.co",
+    email: "support@northline.co",
     phone: "+44 20 7123 8890",
     address: "Cardiff Creative Quarter, UK",
   },

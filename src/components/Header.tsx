@@ -19,7 +19,7 @@ export function Header() {
       <div className="container mx-auto px-3 sm:px-4">
         <div className="flex h-14 items-center justify-between gap-3 md:h-20">
           <Link to="/" className="flex min-w-0 items-center gap-2.5 sm:gap-3">
-            <img src="/assets/pictures%20with%20names/arora-shield-logo.png" alt="Northline crest logo" className="h-7 w-7 rounded-sm object-contain md:h-8 md:w-8" />
+            <img src="/assets/northline/Northline%20Logo.png" alt="Northline crest logo" className="h-7 w-7 rounded-sm object-contain md:h-8 md:w-8" />
             <div className="flex min-w-0 flex-col leading-tight">
               <span className="block truncate text-sm font-black tracking-tight sm:text-lg md:text-2xl">{siteConfig.name}</span>
               <span className="hidden text-[10px] uppercase tracking-[0.2em] text-muted-foreground md:block">

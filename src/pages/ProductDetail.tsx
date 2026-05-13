@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ShieldCheck, Truck } from "lucide-react";
 import { toast } from "sonner";
@@ -10,7 +10,13 @@ export default function ProductDetail() {
   const { slug } = useParams();
   const product = slug ? getProductBySlug(slug) : undefined;
   const [selectedSize, setSelectedSize] = useState(product?.sizes[0] ?? "M");
+  const [selectedImage, setSelectedImage] = useState(product?.image ?? "");
   const { addItem } = useCart();
+
+  useEffect(() => {
+    setSelectedSize(product?.sizes[0] ?? "M");
+    setSelectedImage(product?.image ?? "");
+  }, [product]);
 
   const relatedProducts = useMemo(() => {
     if (!product) return [];
@@ -29,10 +35,29 @@ export default function ProductDetail() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-12 md:py-20">
+    <div className="container mx-auto px-4 py-12 md:py-16">
       <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
-        <section className="reveal-up overflow-hidden rounded-[1.5rem] border border-border/70 bg-card/90">
-          <img src={product.image} alt={product.name} className="aspect-[4/5] w-full object-cover" />
+        <section className="reveal-up space-y-3">
+          <div className="overflow-hidden rounded-[1.35rem] border border-border/70 bg-card/90">
+            <img src={selectedImage} alt={product.name} className="aspect-[4/5] w-full object-cover" />
+          </div>
+          {product.images.length > 1 && (
+            <div className="grid grid-cols-3 gap-3">
+              {product.images.map((image, index) => (
+                <button
+                  key={image}
+                  type="button"
+                  onClick={() => setSelectedImage(image)}
+                  className={`overflow-hidden rounded-lg border bg-card transition-colors ${
+                    selectedImage === image ? "border-foreground" : "border-border/70 hover:border-foreground/45"
+                  }`}
+                  aria-label={`View ${product.name} image ${index + 1}`}
+                >
+                  <img src={image} alt={`${product.name} view ${index + 1}`} className="aspect-square w-full object-cover" />
+                </button>
+              ))}
+            </div>
+          )}
         </section>
 
         <section className="reveal-up space-y-6" style={{ animationDelay: "100ms" }}>
