@@ -1,47 +1,44 @@
+import { useState } from "react";
+import type { FormEvent } from "react";
 import { Link } from "react-router-dom";
+import { Instagram, Mail, MapPin } from "lucide-react";
+import { toast } from "sonner";
+
 import { siteConfig } from "@/lib/siteConfig";
 
 export function Footer() {
+  const [email, setEmail] = useState("");
   const currentYear = new Date().getFullYear();
 
+  const submit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!email) return;
+
+    toast.success("You're on the list.", {
+      description: "Northline drop notes only. No noise.",
+    });
+    setEmail("");
+  };
+
   return (
-    <footer className="mt-auto border-t border-border/70 bg-card/80">
-      <div className="container mx-auto px-4 py-6 md:py-7">
-        <div className="md:hidden">
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <h3 className="text-base font-black tracking-tight">{siteConfig.name}</h3>
-              <p className="mt-1 max-w-[13rem] text-xs leading-5 text-muted-foreground">Premium streetwear essentials from Wales.</p>
-            </div>
-            <Link to="/contact" className="rounded-full border border-border px-3 py-1.5 text-xs font-bold">
-              Contact
-            </Link>
-          </div>
-
-          <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 border-t border-border/70 pt-4 text-xs font-semibold text-muted-foreground">
-            {siteConfig.nav.map((item) => (
-              <Link key={item.href} to={item.href} className="transition-colors hover:text-foreground">
-                {item.label}
-              </Link>
-            ))}
-          </div>
-
-          <p className="mt-5 text-center text-[11px] text-muted-foreground">&copy; {currentYear} {siteConfig.name}.</p>
-        </div>
-
-        <div className="hidden items-start justify-between gap-8 md:grid md:grid-cols-[1.1fr_0.8fr_1fr]">
+    <footer className="border-t border-white/10 bg-card/20 backdrop-blur-xl">
+      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.1fr_0.9fr_1fr]">
           <div>
-            <h3 className="text-lg font-black tracking-tight">{siteConfig.name}</h3>
-            <p className="mt-2 max-w-md text-sm leading-5 text-muted-foreground">{siteConfig.description}</p>
+            <div className="font-heading text-lg font-bold uppercase tracking-[0.22em]">{siteConfig.name}</div>
+            <p className="mt-5 max-w-md text-sm leading-7 text-muted-foreground">{siteConfig.description}</p>
+            <p className="mt-6 text-[10px] uppercase tracking-[0.32em] text-muted-foreground">
+              Drop culture / editorial streetwear / Cardiff
+            </p>
           </div>
 
           <div>
-            <h4 className="text-sm font-bold">Explore</h4>
-            <ul className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
+            <div className="section-kicker">Explore</div>
+            <ul className="mt-5 space-y-3 text-sm">
               {siteConfig.nav.map((item) => (
                 <li key={item.href}>
-                  <Link to={item.href} className="inline-flex items-center text-muted-foreground transition-colors hover:text-foreground">
-                    <span>{item.label}</span>
+                  <Link to={item.href} className="transition-colors hover:text-primary">
+                    {item.label}
                   </Link>
                 </li>
               ))}
@@ -49,23 +46,64 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-bold">Contact</h4>
-            <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
-              <li>
-                <span className="font-medium text-foreground">Email: </span>{siteConfig.contact.email}
-              </li>
-              <li>
-                <span className="font-medium text-foreground">Phone: </span>{siteConfig.contact.phone}
-              </li>
-              <li>
-                <span className="font-medium text-foreground">Address: </span>{siteConfig.contact.address}
-              </li>
-            </ul>
+            <div className="section-kicker">Drop access</div>
+            <p className="mt-5 max-w-sm text-sm leading-7 text-muted-foreground">
+              One short email when a drop lands, when a restock opens, or when the studio has something worth seeing.
+            </p>
+            <form onSubmit={submit} className="mt-5 flex flex-col overflow-hidden border border-white/10 bg-white/5 focus-within:border-primary sm:flex-row">
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                placeholder="you@email.com"
+                className="min-w-0 flex-1 bg-transparent px-4 py-3 text-sm outline-none placeholder:text-muted-foreground"
+              />
+              <button
+                type="submit"
+                className="shrink-0 bg-primary px-5 py-3 text-[10px] font-bold uppercase tracking-[0.28em] text-primary-foreground transition-colors hover:bg-accent hover:text-accent-foreground sm:py-0"
+              >
+                Join
+              </button>
+            </form>
           </div>
         </div>
 
-        <div className="mt-6 hidden border-t pt-4 text-center text-xs text-muted-foreground md:block">
-          <p>&copy; {currentYear} {siteConfig.name}. All rights reserved.</p>
+        <div className="mt-12 grid gap-6 border-t border-white/10 pt-6 text-sm text-muted-foreground md:grid-cols-3">
+          <div className="flex items-start gap-3">
+            <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+            <span>{siteConfig.contact.address}</span>
+          </div>
+          <div className="flex items-start gap-3">
+            <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+            <a href={`mailto:${siteConfig.contact.email}`} className="transition-colors hover:text-primary">
+              {siteConfig.contact.email}
+            </a>
+          </div>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-start gap-3 transition-colors hover:text-primary"
+          >
+            <Instagram className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+            <span>@northline.uk</span>
+          </a>
+        </div>
+
+        <div className="mt-8 flex flex-col gap-3 border-t border-white/10 pt-5 text-[10px] uppercase tracking-[0.28em] text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <p>&copy; {currentYear} Northline. All rights reserved.</p>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            <Link to="/about" className="transition-colors hover:text-primary">
+              Philosophy
+            </Link>
+            <Link to="/contact" className="transition-colors hover:text-primary">
+              Contact
+            </Link>
+            <Link to="/shop" className="transition-colors hover:text-primary">
+              Shop
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

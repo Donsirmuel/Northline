@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { CheckCircle2, Loader2, Minus, Plus, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
@@ -56,7 +56,7 @@ export default function Cart() {
     ? `${appConfig.apiBaseUrl.replace(/\/$/, "")}/orders`
     : "/api/orders";
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (items.length === 0) {
@@ -127,7 +127,7 @@ export default function Cart() {
         <div className="mx-auto max-w-2xl rounded-2xl border border-border/70 bg-card/80 p-8 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Cart</p>
           <h1 className="mt-4 text-3xl font-black md:text-4xl">Your cart is empty.</h1>
-          <p className="mt-3 text-muted-foreground">Add products to begin building your checkout flow demo.</p>
+          <p className="mt-3 text-muted-foreground">Add a piece to see your order summary and shipping options here.</p>
           <Button asChild className="mt-6">
             <Link to="/shop">Go to shop</Link>
           </Button>
@@ -138,7 +138,7 @@ export default function Cart() {
 
   return (
     <div className="container mx-auto px-4 py-14 md:py-20">
-      <h1 className="text-4xl font-black md:text-5xl">Shopping cart</h1>
+      <h1 className="text-4xl font-black md:text-5xl">Your bag</h1>
 
       <div className="mt-3 text-sm text-muted-foreground">{itemCount} item{itemCount === 1 ? "" : "s"} in cart</div>
 
@@ -156,7 +156,7 @@ export default function Cart() {
                     <h2 className="text-lg font-extrabold">{item.name}</h2>
                     <p className="text-sm text-muted-foreground">Size: {item.size}</p>
                   </div>
-                  <p className="text-lg font-extrabold">${item.price}</p>
+                  <p className="text-lg font-extrabold">{"\u00A3"}{item.price}</p>
                 </div>
 
                 <div className="flex items-center justify-between">
@@ -197,17 +197,17 @@ export default function Cart() {
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Order summary</p>
           <div className="mt-4 flex items-center justify-between border-b border-border/70 pb-4">
             <span className="text-muted-foreground">Subtotal</span>
-            <span className="text-2xl font-extrabold">${subtotal.toFixed(2)}</span>
+            <span className="text-2xl font-extrabold">{"\u00A3"}{subtotal.toFixed(2)}</span>
           </div>
 
           <div className="space-y-2 text-sm">
             <div className="flex items-center justify-between text-muted-foreground">
               <span>Shipping</span>
-              <span>{shipping === 0 ? "Free" : `$${shipping.toFixed(2)}`}</span>
+              <span>{shipping === 0 ? "Free" : `\u00A3${shipping.toFixed(2)}`}</span>
             </div>
             <div className="flex items-center justify-between text-base font-semibold">
               <span>Total</span>
-              <span>${total.toFixed(2)}</span>
+              <span>{"\u00A3"}{total.toFixed(2)}</span>
             </div>
           </div>
 
