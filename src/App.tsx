@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
+import { ScrollToTop } from "./components/ScrollToTop";
 import { CartProvider } from "./hooks/use-cart";
 import Home from "./pages/Home";
 import Collections from "./pages/Collections";
@@ -27,6 +28,7 @@ const App = () => {
         <Sonner />
         <BrowserRouter basename={basePath === "" ? "/" : basePath}>
           <CartProvider>
+            <ScrollToTop />
             <div className="flex flex-col min-h-screen">
               <Header />
               <main className="flex-1">
