@@ -98,7 +98,7 @@ export default function Home() {
                 ["08", "Pieces in Drop 001"],
                 ["240 gsm", "Core fabric weight"],
                 ["UK", "Studio base"],
-                ["24h", "Early access"],
+                ["24h", "Round the clock access"],
               ].map(([value, label]) => (
                 <article key={label} className="gloss-panel rounded-[1.1rem] px-4 py-4">
                   <div className="font-heading text-2xl font-bold uppercase tracking-[0.04em]">{value}</div>
@@ -141,9 +141,9 @@ export default function Home() {
                 </div>
                 <div className="gloss-panel flex flex-col justify-between rounded-[1.6rem] p-5">
                   <div>
-                    <p className="section-kicker">Why it works</p>
+                    <p className="section-kicker">What you get!</p>
                     <p className="mt-4 text-sm leading-7 text-muted-foreground">
-                      Product-led imagery keeps the focus on the garment, which makes the page feel cleaner and more dependable.
+                      A personality-driven collection of heavyweight cotton tees, each with a clear fit note, a short-run print, and a simple styling story.
                     </p>
                   </div>
                   <div className="mt-8 flex items-center justify-between gap-4">
@@ -183,9 +183,9 @@ export default function Home() {
       <section className="mx-auto grid max-w-7xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start lg:gap-10 lg:px-8 lg:py-20">
         <div className="max-w-xl">
           <p className="section-kicker">Shop by need</p>
-          <h2 className="section-title mt-3 text-[clamp(2rem,5vw,4rem)] leading-[0.92]">A calmer way to choose your next piece.</h2>
+          <h2 className="section-title mt-3 text-[clamp(2rem,5vw,4rem)] leading-[0.92]">A Straightforward way to choose your next piece.</h2>
           <p className="mt-4 text-base leading-7 text-muted-foreground">
-            Less clutter, more breathing room, and sections that make it easier to compare fit, feel, and price.
+            Each piece in the Northline drop is built around a clear fit note, a short-run print, and a simple styling story. The goal is to make each release feel simple to choose and better to wear.
           </p>
         </div>
         <div className="grid gap-4 md:grid-cols-3">

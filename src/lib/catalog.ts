@@ -68,7 +68,7 @@ export const products: Product[] = [
       "Snow Leopard pushes the animal motif into a more graphic register. The vertical layout gives the print a poster-like rhythm while keeping the garment easy to wear.",
     materials: "240 gsm cotton jersey with screen-printed artwork and a crisp matte finish.",
     fit: "Boxy fit with a wider chest and a slightly shorter length.",
-    story: "The cleanest piece in the Predator Series, made for people who want impact without extra noise.",
+    story: "Like the Leopard itself, this piece is built to stand out without losing its ability to blend into the rest of your wardrobe.",
     sizes: ["S", "M", "L", "XL", "XXL"],
   },
   {
@@ -86,7 +86,7 @@ export const products: Product[] = [
       "Explorer Cosmic is the most narrative-driven tee in the range, pairing space-age illustration with a colder Northline palette and a comfortable, wearable shape.",
     materials: "240 gsm organic cotton with a dual-side screen print and a compact rib collar.",
     fit: "Boxy regular fit. Wear true to size for a relaxed drop or size down for a tighter shoulder.",
-    story: "A standout piece for days when you want the outfit to feel more considered without trying too hard.",
+    story: "A standout piece for days when you want to feel more like an explorer rather than just another passerby.",
     sizes: ["S", "M", "L", "XL", "XXL"],
   },
   {
@@ -104,7 +104,7 @@ export const products: Product[] = [
       "The boldest print in the collection. Industrial Tactical feels closer to a screen-printed poster than a standard tee, but the cut keeps it comfortable for everyday wear.",
     materials: "240 gsm cotton jersey with a multi-colour screen print and a slightly dry, structured hand.",
     fit: "Relaxed boxy fit with dropped shoulders and room through the sleeve.",
-    story: "Made for customers who want the loudest graphic in the range without losing wearability.",
+    story: "Made for customers who want the loudest graphic in the range without losing wearability, with gritty appeal.",
     sizes: ["S", "M", "L", "XL", "XXL"],
   },
   {
@@ -126,7 +126,7 @@ export const products: Product[] = [
       "Timber Wolf is the most direct character piece in the lineup. The graphic lands fast, but the overall composition still feels easy to wear and easy to style.",
     materials: "240 gsm cotton jersey with a high-opacity screen print and a smooth, durable surface.",
     fit: "Boxy fit with a clean neckline and slightly longer sleeve length.",
-    story: "A strong pick if you want the collection’s bolder side without losing comfort or versatility.",
+    story: "A strong pick if you want the howling call of the wild without losing comfort.",
     sizes: ["S", "M", "L", "XL", "XXL"],
   },
   {
@@ -148,7 +148,7 @@ export const products: Product[] = [
       "Valkyrie leans into folklore without losing the streetwear edge. The imagery is cinematic, but the garment still lands as a clean, wearable essential.",
     materials: "240 gsm cotton jersey with metallic print accents and a dense matte body.",
     fit: "Boxy regular fit with a slightly shorter length for easier layering.",
-    story: "For customers who want a darker graphic with enough character to stand on its own.",
+    story: "For customers who want a darker graphic with enough character to stand on its own, the Valkyrie is a compelling choice.",
     sizes: ["S", "M", "L", "XL", "XXL"],
   },
   {
@@ -170,7 +170,7 @@ export const products: Product[] = [
       "Polar Bear is the coldest piece in the Predator Series. It keeps the visual language restrained so the animal motif feels sharp, premium, and easy to wear.",
     materials: "240 gsm organic cotton with soft-touch screen printing and a smooth collar finish.",
     fit: "Boxy regular fit with enough room to wear over long sleeves.",
-    story: "A balanced graphic tee for people who want a statement piece that still plays nicely with the rest of the outfit.",
+    story: "A balanced graphic tee for when you want to rule the day like a polar bear rules the arctic.",
     sizes: ["S", "M", "L", "XL", "XXL"],
   },
 ];

@@ -33,11 +33,11 @@ export default function About() {
           <div>
             <p className="section-kicker">About Northline</p>
             <h1 className="section-title mt-4 text-[clamp(2.8rem,7vw,5.8rem)] leading-[0.88]">
-              Designed to make buying
-              <span className="block text-primary/60">feel straightforward.</span>
+              Designed to make your daily wears
+              <span className="block text-primary/60">feel more confident and comfortable.</span>
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
-              {siteConfig.description} We keep the range focused so customers can choose quickly, understand the fit, and feel good about what they're getting.
+              {siteConfig.description} We design each piece to be an easy to wear everyday outfit that portrays your inner energy.
             </p>
           </div>
 
@@ -102,7 +102,7 @@ export default function About() {
               Clear fit notes, honest product details, and support when you need it.
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
-              Northline keeps the experience simple: the shop is easy to browse, the product pages explain the fit and material, and the team is easy to contact if you need help deciding.
+              Northline keeps the experience simple: the shop is easy to browse, the design is clear and top-notch giving you your daily dose of confidence, the product pages explain the fit and material, and the team is easy to contact if you need help deciding.
             </p>
           </div>
 
