@@ -335,7 +335,7 @@ export default function Cart() {
             </Button>
 
             <p className="text-xs text-muted-foreground">
-              This sends a guest order request to {endpointUrl}. No account or payment step is required yet.
+              Note: We don't save your details, all details are saved locally in your browser and will be lost if you clear your cookies or local storage. You will receive an email with your order reference number, which you can use to track your order.
             </p>
           </form>
         </aside>
