@@ -46,6 +46,8 @@ Default dev URL: `http://localhost:8080`
 - `npm run build:dev` - build with development mode settings
 - `npm run preview` - preview production build
 - `npm run lint` - run ESLint checks
+- `npm run typecheck` - run the TypeScript project build checks
+- `npm run check` - run lint, typecheck, and build in one command
 
 ## Deployment Notes
 
