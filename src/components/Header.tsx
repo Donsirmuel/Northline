@@ -36,7 +36,7 @@ export function Header() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-8 text-[11px] font-semibold uppercase tracking-[0.24em] text-muted-foreground md:flex">
+        <nav className="hidden items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground lg:flex xl:gap-8 xl:tracking-[0.24em]">
           {siteConfig.nav.map((link) => (
             <Link
               key={link.href}
@@ -66,7 +66,7 @@ export function Header() {
 
           <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="h-10 w-10 md:hidden">
+              <Button variant="ghost" size="icon" className="h-10 w-10 lg:hidden">
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Open menu</span>
               </Button>

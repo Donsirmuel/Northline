@@ -89,8 +89,13 @@
     min-height: 100%;
   }
 
+  html {
+    scroll-padding-top: 4.5rem;
+  }
+
   body {
     @apply font-body bg-background text-foreground antialiased;
+    overflow-x: clip;
     background-image:
       radial-gradient(circle at top, hsl(214 48% 22% / 0.72), transparent 38%),
       radial-gradient(circle at 82% 18%, hsl(28 92% 58% / 0.18), transparent 20%),

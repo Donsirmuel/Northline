@@ -123,7 +123,7 @@ export default function Cart() {
 
   if (items.length === 0) {
     return (
-      <div className="container mx-auto px-4 py-20">
+      <div className="container mx-auto py-20">
         <div className="mx-auto max-w-2xl rounded-2xl border border-border/70 bg-card/80 p-8 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Cart</p>
           <h1 className="mt-4 text-3xl font-black md:text-4xl">Your cart is empty.</h1>
@@ -137,7 +137,7 @@ export default function Cart() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-14 md:py-20">
+    <div className="container mx-auto py-14 md:py-20">
       <h1 className="text-4xl font-black md:text-5xl">Your bag</h1>
 
       <div className="mt-3 text-sm text-muted-foreground">{itemCount} item{itemCount === 1 ? "" : "s"} in cart</div>
@@ -151,7 +151,7 @@ export default function Cart() {
             >
               <img src={item.image} alt={item.name} className="h-28 w-24 rounded-md object-cover" loading="lazy" />
               <div className="flex flex-1 flex-col justify-between gap-3">
-                <div className="flex items-start justify-between gap-4">
+                <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
                   <div>
                     <h2 className="text-lg font-extrabold">{item.name}</h2>
                     <p className="text-sm text-muted-foreground">Size: {item.size}</p>
@@ -159,7 +159,7 @@ export default function Cart() {
                   <p className="text-lg font-extrabold">{"\u00A3"}{item.price}</p>
                 </div>
 
-                <div className="flex items-center justify-between">
+                <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="inline-flex items-center gap-2 rounded-full border border-border px-2 py-1">
                     <button
                       type="button"
